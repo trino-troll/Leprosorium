@@ -50,5 +50,11 @@ end
 post '/new' do
 	#получаем переменную из post-запроса
  	content = params[:content]
+
+ 	if content.size <= 0
+ 		@error = 'Type post text.'
+ 		return erb :new
+ 	end
+
 	erb "You tiped #{content}"
 end
